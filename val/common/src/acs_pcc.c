@@ -189,7 +189,8 @@ void val_pcc_free_info_table(void)
     }
     else {
       val_print(ACS_PRINT_ERR,
-          "\n WARNING: The pointer is already NULL");
+                  "\n WARNING: The pointer 0x%llx is already NULL", 
+        (uint64_t)g_pcc_info_table);
     }
   
 }
