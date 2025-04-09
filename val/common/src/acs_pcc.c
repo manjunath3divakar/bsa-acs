@@ -185,7 +185,7 @@ void val_pcc_free_info_table(void)
 {
     val_print(ACS_PRINT_ERR,
               "\n    Before free: g_pcc_info_table = 0x%llx",
-              (uint64_t)(UINTN)g_pcc_info_table);
+              (uint64_t)g_pcc_info_table);
 
     val_print(ACS_PRINT_ERR,
               g_pcc_info_table != NULL ? "    Status: NOT NULL" : "    Status: NULL",
