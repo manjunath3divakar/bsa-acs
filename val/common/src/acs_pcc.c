@@ -183,21 +183,13 @@ void
 **/
 void val_pcc_free_info_table(void)
 {
-    val_print(ACS_PRINT_ERR,
-              "\n    Before free: g_pcc_info_table = 0x%llx",
-              (uint64_t)g_pcc_info_table);
-
-    val_print(ACS_PRINT_ERR,
-              g_pcc_info_table != NULL ? "    Status: NOT NULL" : "    Status: NULL",
-              0);
-
     if (g_pcc_info_table != NULL) {
         pal_mem_free_aligned((void *)g_pcc_info_table);
         g_pcc_info_table = NULL;
     }
-
-    val_print(ACS_PRINT_ERR,
-              g_pcc_info_table != NULL ? "\n    After free: g_pcc_info_table is NOT NULL"
-                                       : "\n    After free: g_pcc_info_table is NULL",
-              0);
+    else {
+      val_print(ACS_PRINT_ERR,
+          "\n WARNING: The pointer is already NULL");
+    }
+  
 }
