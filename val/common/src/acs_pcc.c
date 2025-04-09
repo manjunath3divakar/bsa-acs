@@ -184,8 +184,15 @@ void
 void
 val_pcc_free_info_table(void)
 {
+  val_print(ACS_PRINT_ERR,
+              "\n    Before free: g_pcc_info_table = 0x%llx, is %a",
+              (unsigned long long)g_pcc_info_table,
+              g_pcc_info_table != NULL ? L"NOT NULL" : L"NULL");
   if (g_pcc_info_table != NULL) {
         pal_mem_free_aligned((void *)g_pcc_info_table);
-        g_pcc_info_table = NULL;  // Avoid dangling pointer
+        g_pcc_info_table = NULL; 
     }  
+  val_print(ACS_PRINT_ERR,
+              "\n    After free: g_pcc_info_table is %a",
+              g_pcc_info_table != NULL ? L"NOT NULL" : L"NULL");
 }
