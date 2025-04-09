@@ -181,7 +181,6 @@ void
 
   @return None
 **/
-void
 void val_pcc_free_info_table(void)
 {
     val_print(ACS_PRINT_ERR,
