@@ -181,26 +181,19 @@ void
 
   @return None
 **/
-void
-val_pcc_free_info_table(void)
-{
-  pal_mem_free_aligned((void *)g_pcc_info_table);
-  val_print(ACS_PRINT_ERR,
-          "\n    Platform fails to set command complete, post command for PCC subspace id : 0x%x",
-          subspace_id);
-}
-
 
 void
 val_pcc_free_info_table(void)
 {
     val_print(ACS_PRINT_DEBUG,
-              "\n    g_pcc_info_table before free: %s\n",
-              g_pcc_info_table ? "NOT NULL" : "NULL");
+              "\n    g_pcc_info_table before free: 0x%llx\n",
+              (uint64_t)g_pcc_info_table);
+
     pal_mem_free_aligned((void *)g_pcc_info_table);
+
     val_print(ACS_PRINT_DEBUG,
-              "\n    g_pcc_info_table after free (before NULL set): %s\n",
-              g_pcc_info_table ? "NOT NULL" : "NULL");
+              "\n    g_pcc_info_table after free (before NULL set): 0x%llx\n",
+              (uint64_t)g_pcc_info_table);
+
     g_pcc_info_table = NULL;
 }
-
